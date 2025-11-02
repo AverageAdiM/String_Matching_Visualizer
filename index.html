@@ -1088,7 +1088,6 @@
         localStorage.setItem("theme", document.body.classList.contains("light-mode") ? "light" : "dark");
       }
 
-      // Load saved theme
       if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
       }
@@ -1485,7 +1484,6 @@
 
         const step = steps[position];
 
-        // Update pattern shift indicator
         const shiftIndicator = document.getElementById("shiftIndicator");
         if (step.offset !== undefined) {
           shiftIndicator.style.left = `${step.offset * 65 + 27.5}px`;
@@ -1534,7 +1532,6 @@
         if (algorithm === "kmp") renderLPS();
         else if (algorithm === "bm") renderBC();
 
-        // Update match history when a complete match is found
         if (step.complete && step.offset !== undefined) {
           if (!matchHistory.includes(step.offset)) {
             matchHistory.push(step.offset);
@@ -1573,7 +1570,6 @@
           document.getElementById("dataHead").textContent = "📊 Bad Character Table";
         }
 
-        // Hide match history initially
         document.getElementById("matchHistory").classList.add("hidden");
 
         if (steps.length) visualize();
@@ -1617,15 +1613,14 @@
         }
       }
 
-      // Event listeners
       document.getElementById("textSeq").addEventListener("change", restart);
       document.getElementById("patSeq").addEventListener("change", restart);
       document.getElementById("algoPick").addEventListener("change", restart);
 
-      // Initialize on load
       window.onload = function() {
         restart();
       };
     </script>
   </body>
+
 </html>
